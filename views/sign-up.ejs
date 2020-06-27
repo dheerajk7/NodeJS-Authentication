@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="css/home.css">
+<div class="container col-md-8 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-2">
+        <h1>Sign Up</h1>
+        <form action="/users/add-user" method="POST">
+            <label for="email">Email :</label>
+            <br>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <br>
+            <label for="name">Name :</label>
+            <br>
+            <input type="text" name="name" id="name" placeholder="Name" required>
+            <br>
+            <label for="password">Password :</label>
+            <br>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <br>
+            <label for="confirm_password">Confirm Password :</label>
+            <br>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+            <br>
+            <br>
+            <input type="submit" value="Add User">
+            <br>
+        </form>        
+        <h3><a href="/users/auth/google">Sign Up With Google</a></h3>
+    </ul>
+</div>

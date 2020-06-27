@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="css/sign-in.css">
+<div class="container col-md-8 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-2">
+        <h1>Sign In</h1>
+        <form action="/users/create-session" method="POST">
+            <label for="email">Email :</label>
+            <br>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <br>
+            <label for="password">Password :</label>
+            <br>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <br>
+            <br>
+            <input type="submit" value="Sign In">
+            <br>
+        </form>        
+        <h3><a href="/users/auth/google">Sign In With Google</a></h3>
+    </ul>
+</div>

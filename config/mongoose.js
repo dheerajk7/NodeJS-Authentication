@@ -1,7 +1,7 @@
 //configuring mongo db
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/habit-tracker',{useNewUrlParser:true,useUnifiedTopology:true});
+mongoose.connect('mongodb://localhost/authentication-node',{useNewUrlParser:true,useUnifiedTopology:true});
 
 const db = mongoose.connection;
 
