@@ -43,7 +43,7 @@ passport.checkAuthentication = function(request,response,next)
         return next();
     }
     //if user is not signed in
-    return response.redirect('/users/sign-in');
+    return response.redirect('/authenticate/sign-in');
 }
 
 passport.setAuthenticatedUser = function(request,response,next)

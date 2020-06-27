@@ -6,7 +6,7 @@ const User = require('../models/user');
 passport.use(new googleStrategy({
         clientID:'725473833505-44c0ol63u20j0rhv8o70kht5vi8m1htk.apps.googleusercontent.com',
         clientSecret:'bhBcJUiPPOmdUrTVLwTM9u1y',
-        callbackURL:'http://localhost:8000/users/auth/google/callback',
+        callbackURL:'http://localhost:8000/authenticate/auth/google/callback',
     },
     function(accessToken, refreshToken, profile, done)
     {
@@ -17,10 +17,16 @@ passport.use(new googleStrategy({
                 console.log('Error in google strategy-passport');
                 return;
             }
-            console.log(profile);
             if(user)
             {
                 //if user found then set these user to request.user
+                if(!user.is_varified)
+                {
+                    //to update email verification status
+                    user.updateOne({is_varified:true},function(err,user)
+                    {
+                    });
+                }
                 return done(null,user);
             }
             else

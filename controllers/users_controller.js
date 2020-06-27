@@ -1,20 +1,6 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-module.exports.signIn = function(request,response)
-{
-    return response.render('sign-in',{
-        title:'Sign In | Authentication'
-    });
-}
-
-module.exports.signUp = function(request,response)
-{
-    return response.render('sign-up',{
-        title:'Sign Up | Authentication',
-    });
-}
-
 module.exports.addUser = async function(request,response)
 {
     try
@@ -39,12 +25,12 @@ module.exports.addUser = async function(request,response)
                 }
             );
 
-            return response.redirect('/users/sign-in');
+            return response.redirect('/authenticate/sign-in');
         }
         else
         {
             console.log("User exist");
-            return response.redirect('/users/sign-in');
+            return response.redirect('/authenticate/sign-in');
         }
     }
     catch(err)
@@ -52,17 +38,6 @@ module.exports.addUser = async function(request,response)
         console.log('Error in adding User',err);
         return;
     }
-}
-
-module.exports.createSession = function(request,response)
-{
-    return response.redirect('/');
-};
-
-module.exports.signOut = function(request,response)
-{
-    request.logout();
-    return response.redirect('/');
 }
 
 module.exports.profile = async function(request,response)
@@ -91,7 +66,7 @@ module.exports.updatePassword = async function(request,response)
     let user = await User.findById(request.user.id);
     if(!user)
     {
-        return response.redirect('users/sign-in');
+        return response.redirect('authenticate/sign-in');
     }
     // matching old password
     let result = await bcrypt.compare(request.body.old_password,user.password);
