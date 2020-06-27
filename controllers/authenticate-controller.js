@@ -14,11 +14,13 @@ module.exports.signUp = function(request,response)
 
 module.exports.createSession = function(request,response)
 {
+    request.flash('success','Logged In Successfully');
     return response.redirect('/');
 };
 
 module.exports.signOut = function(request,response)
 {
+    request.flash('success','Logged Out Successfully');
     request.logout();
     return response.redirect('/');
 }

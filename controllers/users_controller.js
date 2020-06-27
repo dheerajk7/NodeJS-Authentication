@@ -8,6 +8,7 @@ module.exports.addUser = async function(request,response)
         let requestEmail = request.body.email.toLowerCase();
         if(request.body.password != request.body.confirm_password)
         {
+            request.flash('error','Password Does not Matched');
             return response.redirect('back');
         }
         let user = await User.findOne({email:requestEmail});
@@ -29,13 +30,12 @@ module.exports.addUser = async function(request,response)
         }
         else
         {
-            console.log("User exist");
+            request.flash('error','User Exist');
             return response.redirect('/authenticate/sign-in');
         }
     }
     catch(err)
     {
-        console.log('Error in adding User',err);
         return;
     }
 }
@@ -61,6 +61,7 @@ module.exports.updatePassword = async function(request,response)
 {
     if(request.body.new_password != request.body.confirm_password)
     {
+        request.flash('Password Does not Matched');
         return response.redirect('back');
     }
     let user = await User.findById(request.user.id);
@@ -78,7 +79,7 @@ module.exports.updatePassword = async function(request,response)
     }
     else
     {
-        console.log('Password Does not matched');
+        request.flash('error','Old password are incorrect');
     }
     return response.redirect('back');
 }

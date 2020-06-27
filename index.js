@@ -3,7 +3,6 @@ const port = 8000;
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const sassMiddleware = require('node-sass-middleware');
-const flash = require('connect-flash');
 //connecting to database
 const db = require('./config/mongoose');
 //used for session cookie
@@ -13,6 +12,8 @@ const passportLocal = require('./config/passport-local-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 //mongo store for storing session
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+const flashMiddleware = require('./config/flash-middleware');
 
 //using sass or scss for styling 
 app.use(sassMiddleware({
@@ -67,9 +68,11 @@ app.use(session(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+//setting flash messages
+app.use(flash());
+app.use(flashMiddleware.setFlash);
 app.use(passport.setAuthenticatedUser);
-
-
 //using router
 app.use('/',require('./routes/index.js'));
 

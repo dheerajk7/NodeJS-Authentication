@@ -5,8 +5,9 @@ const bcrypt = require('bcrypt');
 
 passport.use(new LocalStrategy({
     usernameField:'email',
+    passReqToCallback:'true',
     },
-    function(email,password,done)
+    function(request,email,password,done)
     {
         User.findOne({email:email.toLowerCase()},function(err,user)
         {
@@ -18,14 +19,13 @@ passport.use(new LocalStrategy({
 
             if(!user)
             {
-                console.log('Invalid user name or password');
                 return done(null,false);
             }
             bcrypt.compare(password,user.password,function(err,result)
             {
                 if(result != true)
                 {
-                    console.log('Invalid user name or password');
+                    request.flash('error','Invalid Username and Password');
                     return done(null,false);
                 }
                 return done(null,user);
