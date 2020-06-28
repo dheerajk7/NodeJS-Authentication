@@ -7,7 +7,7 @@ This web app lets you authenticate using passport in your Node.js applications. 
 
 If you would like to download the code and try it for yourself:
 
-1. Clone the repo: `git clone git@github.com:scotch-io/easy-node-authentication`
+1. Clone the repo: `git clone https://github.com/dheerajk7/NodeJS-Authentication.git`
 2. Install packages: `npm install`
 3. Change out email credentials in config/nodemailer.js
 4. Launch: Run `npm start` to run server
