@@ -9,9 +9,10 @@ If you would like to download the code and try it for yourself:
 
 1. Clone the repo: `git clone https://github.com/dheerajk7/NodeJS-Authentication.git`
 2. Install packages: `npm install`
-3. Change out email credentials in config/nodemailer.js
-4. Launch: Run `npm start` to run server
-5. Visit in your browser at: `http://localhost:8080`
+3. Install redis server
+4. Change out email credentials in config/nodemailer.js
+5. Launch: Run `npm start` to run server
+6. Visit in your browser at: `http://localhost:8080`
 
 ## Functionalities
 
