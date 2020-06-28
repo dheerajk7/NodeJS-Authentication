@@ -1,5 +1,4 @@
-const { model } = require("../models/user");
-
+//middleware to set flash message form request into response
 module.exports.setFlash = function(request, response, next)
 {
     response.locals.flash = {

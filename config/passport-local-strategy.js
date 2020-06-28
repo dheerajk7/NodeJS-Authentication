@@ -21,6 +21,13 @@ passport.use(new LocalStrategy({
             {
                 return done(null,false);
             }
+
+            if(user.is_password_available == false)
+            {
+                request.flash('error','Password is yet to set');
+                request.flash('success','Login With Google and set Password or Forget Password');
+                return done(null,false);
+            }
             bcrypt.compare(password,user.password,function(err,result)
             {
                 if(result != true)

@@ -1,6 +1,7 @@
 //configuring mongo db
 const mongoose = require('mongoose');
 
+//connecting to DB
 mongoose.connect('mongodb://localhost/authentication-node',{useNewUrlParser:true,useUnifiedTopology:true});
 
 const db = mongoose.connection;

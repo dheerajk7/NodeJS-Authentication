@@ -7,6 +7,7 @@ var authenticateController = require('../controllers/authenticate-controller');
 //routes
 router.get('/sign-in',authenticateController.signIn);
 router.get('/sign-up',authenticateController.signUp);
+//crearting session for user login
 router.post('/create-session',passport.authenticate(
     'local',
     {

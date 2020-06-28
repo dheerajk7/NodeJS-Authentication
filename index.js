@@ -73,6 +73,7 @@ app.use(passport.session());
 app.use(flash());
 app.use(flashMiddleware.setFlash);
 app.use(passport.setAuthenticatedUser);
+
 //using router
 app.use('/',require('./routes/index.js'));
 

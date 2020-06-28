@@ -1,19 +1,16 @@
-<link rel="stylesheet" href="css/sign-in.css">
-<div class="container col-md-8 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-2">
-        <h1>Sign In</h1>
+<div class="container col-md-4 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-4 form-container">
+        <div class="form-heading">Sign In</div>      
         <form action="/authenticate/create-session" method="POST">
-            <label for="email">Email :</label>
-            <br>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <br>
-            <label for="password">Password :</label>
-            <br>
-            <input type="password" name="password" id="password" placeholder="Password" required>
-            <br>
-            <br>
-            <input type="submit" value="Sign In">
-            <br>
-        </form>        
-        <h3><a href="/authenticate/auth/google">Sign In With Google</a></h3>
-    </ul>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password :</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-success width-100-percent button-heading">Sign in</button>
+        </form>
+        <div class="width-100-percent btn btn-danger button-heading"><a href="/authenticate/auth/google">Sign In With Google</a></div>
+        <div class="width-100-percent" id="forget-password-link"><a href="/forget-password">Forget Password</a></div>
 </div>
